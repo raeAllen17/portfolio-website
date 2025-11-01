@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-primary: hsl(var(--primary));
+  --color-accent: hsl(var(--accent));
+  --color-border: hsl(var(--border));
+  --color-highlight: hsl(var(--highlight));
+
+  --font-sans: 'Lato', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 0 0% 10%;
+    --primary: 38 35% 41%;
+    --accent: 43 63% 46%;
+    --card: 0 0% 100%;
+    --border: 0 0% 84%;
+    --highlight: 46 100% 36%;
+  }
+
+  .dark {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 93%;
+    --primary: 37 29% 62%;
+    --accent: 46 69% 55%;
+    --card: 0 0% 11%;
+    --border: 0 0% 18%;
+    --highlight: 46 87% 67%;
+  }
+
+  h1 {
+    @apply font-serif text-4xl
+  }
+
+  h2 {
+    @apply font-serif text-2xl
+  }
+
+  p {
+    @apply font-sans 
+  }
+}
