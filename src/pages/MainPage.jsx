@@ -1,4 +1,10 @@
-import { HeroSection } from "../sections/HeroSection"
+import { AboutMeSection } from "@/sections/AboutMeSection"
+import { HeroSection } from "@/sections/HeroSection"
+import { EducationSection } from "@/sections/EducationSection"
+import { SkillsSection } from "@/sections/SkillsSection"
+import { BadgeSection } from "@/sections/BadgeSection"
+import { SeminarSection } from "@/sections/SeminarSection"
+import { ProjectSection } from "@/sections/ProjectSection"
 
 export const MainPage = () => {
     return (
@@ -6,17 +12,17 @@ export const MainPage = () => {
             {/* Hero */}
                 <HeroSection /> 
             {/* About Me */}
-
+                <AboutMeSection />
             {/* Education */}
-
+                <EducationSection />
             {/* Skills */}
-
+                <SkillsSection />
             {/* Badges */}
-
+                <BadgeSection />
             {/* Seminars */}
-
+                <SeminarSection />
             {/* Projects */}
-
+                <ProjectSection />
             {/* Contact Me */}
         </div>
     )

@@ -1,5 +1,7 @@
 import { SiGmail, SiInstagram, SiLinkedin } from "react-icons/si"
 import { Switch } from "@/components/ui/switch";
+import { ArrowDownToLine, SunDim, Moon } from "lucide-react";
+import { useEffect, useState } from "react";
 const links = [
     { name: 'About Me', href: '#about' },
     { name: 'Projects', href: '#projects' },
@@ -7,6 +9,30 @@ const links = [
 ];
 
 export const HeroSection = () => {
+
+    // VARS FOR THEME TOGGLE
+    const [isDarkMode, setIsDarkMode] = useState(false);
+
+    useEffect(() => {
+        const storedTheme = localStorage.getItem("portfolio-theme");
+        if (storedTheme === "dark") {
+          document.documentElement.classList.add("dark");
+          setIsDarkMode(true);
+        }
+      }, []);
+
+    const handleTheme = () => {
+        if (isDarkMode) {
+            setIsDarkMode(prev => !prev)
+            document.documentElement.classList.remove("dark");
+            localStorage.removeItem("portfolio-theme")
+        } else {
+            document.documentElement.classList.add("dark")
+            localStorage.setItem("portfolio-theme", "dark")
+            setIsDarkMode(prev => !prev)
+        }
+    }
+
     return (
         <section className="min-h-screen flex flex-col justify-between items-center py-10" >
 
@@ -14,9 +40,9 @@ export const HeroSection = () => {
             <div className="flex justify-between items-center w-full">
                 {/* CONTACT ICONS */}
                 <div className="flex space-x-2">
-                    <SiLinkedin />
-                    <SiGmail />
-                    <SiInstagram />
+                    <SiLinkedin className="text-foreground" />
+                    <SiGmail className="text-foreground" />
+                    <SiInstagram className="text-foreground" />
                 </div>
 
                 {/* PAGE LINKS */}
@@ -31,8 +57,9 @@ export const HeroSection = () => {
                 </div>
 
                 {/* THEME TOGGLE */}
-                <div>
-                    <Switch defaultChecked />
+                <div className="flex space-x-2 items-center"> 
+                    <Switch checked={isDarkMode} onCheckedChange={handleTheme} />
+                    {isDarkMode? <SunDim size={20} className="text-foreground" /> : <Moon size={20} className="text-foreground" /> }
                 </div>
             </div>
 
@@ -42,14 +69,14 @@ export const HeroSection = () => {
                 <p className="text-7xl text-highlight" >
                     RAE ALLEN RETUTA
                 </p>
-                <p>
+                <p> 
                     A fullstack developer that creates clean and performant web applications.
                 </p>
             </div>
 
             {/* SCROLL DOWN ARROW */}
-            <div>
-
+            <div className="flex w-full justify-center items-center">
+                <ArrowDownToLine size={20} className="text-foreground" />
             </div>
         </section>
     )
