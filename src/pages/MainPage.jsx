@@ -5,6 +5,7 @@ import { SkillsSection } from "@/sections/SkillsSection"
 import { BadgeSection } from "@/sections/BadgeSection"
 import { SeminarSection } from "@/sections/SeminarSection"
 import { ProjectSection } from "@/sections/ProjectSection"
+import { ContactMeSection } from "@/sections/ContactMeSection"
 
 export const MainPage = () => {
     return (
@@ -20,10 +21,11 @@ export const MainPage = () => {
             {/* Badges */}
                 <BadgeSection />
             {/* Seminars */}
-                <SeminarSection />
+                {/* <SeminarSection /> */}
             {/* Projects */}
                 <ProjectSection />
             {/* Contact Me */}
+                <ContactMeSection />
         </div>
     )
 }
