@@ -14,7 +14,7 @@ export const ContactMeSection = () => {
                 </button>
             </div>
             {/* Contacts */}
-            <div className="w-full py-10 px-30 flex flex-col flex-wrap h-50 border border-border bg-card rounded-xl gap-5" >
+            <div className="w-full py-10 px-10 md:px-30 flex flex-col flex-wrap md:h-50  border border-border bg-card rounded-xl gap-5" >
                 {contactsData.map(({ title, icon: Icon }, idx) => (
                     <div key={idx} className="flex items-center gap-2">
                         <Icon className="w-5 h-5 text-highlight" />

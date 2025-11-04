@@ -1,6 +1,6 @@
 import { SiGmail, SiInstagram, SiLinkedin } from "react-icons/si"
 import { Switch } from "@/components/ui/switch";
-import { ArrowDownToLine, SunDim, Moon } from "lucide-react";
+import { ArrowDownToLine, SunDim, Moon, Menu } from "lucide-react";
 import { useEffect, useState } from "react";
 const links = [
     { name: 'About Me', href: '#about' },
@@ -16,10 +16,10 @@ export const HeroSection = () => {
     useEffect(() => {
         const storedTheme = localStorage.getItem("portfolio-theme");
         if (storedTheme === "dark") {
-          document.documentElement.classList.add("dark");
-          setIsDarkMode(true);
+            document.documentElement.classList.add("dark");
+            setIsDarkMode(true);
         }
-      }, []);
+    }, []);
 
     const handleTheme = () => {
         if (isDarkMode) {
@@ -35,18 +35,23 @@ export const HeroSection = () => {
 
     return (
         <section className="min-h-screen flex flex-col justify-between items-center py-10" >
-
             {/* NAVIGATION BAR */}
             <div className="flex justify-between items-center w-full">
+
+
                 {/* CONTACT ICONS */}
-                <div className="flex space-x-2">
+                <div className="flex space-x-2 items-center">
+                    {/* MENU FOR SMALL SCREENS */}
+                    <span className="md:hidden mr-3 cursor-pointer">
+                        <Menu />
+                    </span>
                     <SiLinkedin className="text-foreground" />
                     <SiGmail className="text-foreground" />
                     <SiInstagram className="text-foreground" />
                 </div>
 
-                {/* PAGE LINKS */}
-                <div className="flex justify-between space-x-10">
+                {/* PAGE LINKS ABOVE MEDIUM SCREENS */}
+                <div className="hidden md:flex justify-between space-x-10">
                     {links.map(link => (
                         <a
                             key={link.name}
@@ -57,9 +62,9 @@ export const HeroSection = () => {
                 </div>
 
                 {/* THEME TOGGLE */}
-                <div className="flex space-x-2 items-center"> 
+                <div className="flex space-x-2 items-center">
                     <Switch checked={isDarkMode} onCheckedChange={handleTheme} />
-                    {isDarkMode? <SunDim size={20} className="text-foreground" /> : <Moon size={20} className="text-foreground" /> }
+                    {isDarkMode ? <SunDim size={20} className="text-foreground" /> : <Moon size={20} className="text-foreground" />}
                 </div>
             </div>
 
@@ -69,7 +74,7 @@ export const HeroSection = () => {
                 <p className="text-7xl text-highlight" >
                     RAE ALLEN RETUTA
                 </p>
-                <p> 
+                <p>
                     A fullstack developer that creates clean and performant web applications.
                 </p>
             </div>

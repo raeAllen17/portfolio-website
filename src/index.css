@@ -77,7 +77,7 @@
   }
 
   .sec {
-    @apply w-full flex flex-col items-center space-y-3 py-10 gap-5
+    @apply  w-full flex flex-col items-center space-y-3 py-10 gap-5
   }
 }
 

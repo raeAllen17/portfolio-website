@@ -10,7 +10,7 @@ export const ProjectSection = () => {
                 All the projects listed here are currently college and personal projects only.
             </p>
             {/* Heading Content */}
-            <div className="flex flex-col items-center w-3xl space-y-5">
+            <div className="flex flex-col items-center max-w-3xl space-y-5">
                 <img src={projectsData[0].thumbnail} alt="" className="rounded-xl" />
                 <div className="flex flex-col items-center text-center" >
                     <p className="font-semibold" >{projectsData[0].title}</p>
@@ -20,10 +20,10 @@ export const ProjectSection = () => {
                 </div>
             </div>
             {/* Other projects */}
-            <div className="flex flex-wrap w-2xl justify-center gap-5">
+            <div className="flex flex-wrap max-w-2xl justify-center gap-5">
                 {projectsData.slice(1).map((proj, i) => (
                     <div key={i} className="flex flex-col items-center text-center w-80 space-y-5">
-                        <img src={proj.thumbnail} alt="" className="rounded-xl h-50 w-80 object-cover" />
+                        <img src={proj.thumbnail} alt="" className="rounded-xl h-30 md:h-50 w-80 object-cover" />
                         <div>
                             <p className="font-semibold">{proj.title}</p>
                             <p>{proj.desc}</p>

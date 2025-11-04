@@ -7,20 +7,18 @@ export const EducationSection = () => {
             <h2>Education</h2>
             {/* Content */}
             {educationData.map((edu, idx) => (
-                <div key={idx} className={`flex ${idx % 2 === 0 ? "flex-row"  : "flex-row-reverse"} justify-between items-center gap-5 w-3xl`}>
-                    <div className="w-1/2 flex items-center justify-center">
+                <div key={idx} className={`flex w-full flex-wrap ${idx % 2 === 0 ? "flex-row" : "flex-row-reverse"} items-center gap-5 max-w-3xl mx-auto`}>
+                    <div className="min-w-50 flex flex-1 items-center justify-center">
                         <img
                             src={edu.img}
                             alt="School Logo"
-                            style={{
-                                height: 300,
-                            }}
+                            className="h-80 object-cover"
                         />
                     </div>
-                    <div className="flex flex-col items-baseline w-1/2 space-y-2" >
+                    <div className="min-w-50 flex flex-1 flex-col space-y-2 text-center md:text-left " >
                         <p className="text-highlight font-bold"> {edu.school} </p>
                         {edu.body.map((item, idx) => (
-                            <div key={idx} className="flex justify-between w-full">
+                            <div key={idx} className="flex flex-1 justify-between text-left px-10 md:px-0">
                                 <p>{item.text}</p>
                                 <p>{item.date}</p>
                             </div>
