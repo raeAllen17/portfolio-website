@@ -3,7 +3,7 @@ import { ArrowDown } from "lucide-react"
 
 export const ContactMeSection = () => {
     return (
-        <section className="sec">
+        <section className="sec" id="contact">
             {/* Title */}
             <h2>Contact Me</h2>
             {/* Download CV Buttons */}
@@ -15,10 +15,10 @@ export const ContactMeSection = () => {
             </div>
             {/* Contacts */}
             <div className="w-full py-10 px-10 md:px-30 flex flex-col flex-wrap md:h-50  border border-border bg-card rounded-xl gap-5" >
-                {contactsData.map(({ title, icon: Icon }, idx) => (
+                {contactsData.map(({ title, link, icon: Icon }, idx) => (
                     <div key={idx} className="flex items-center gap-2">
                         <Icon className="w-5 h-5 text-highlight" />
-                        <p>{title}</p>
+                        <a href={link} >{title}</a>
                     </div>
                 ))}
             </div>

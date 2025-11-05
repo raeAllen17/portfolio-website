@@ -1,6 +1,6 @@
 import { SiGmail, SiInstagram, SiLinkedin } from "react-icons/si"
 import { Switch } from "@/components/ui/switch";
-import { ArrowDownToLine, SunDim, Moon, Menu } from "lucide-react";
+import { ArrowDownToLine, SunDim, Moon, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 const links = [
     { name: 'About Me', href: '#about' },
@@ -12,6 +12,7 @@ export const HeroSection = () => {
 
     // VARS FOR THEME TOGGLE
     const [isDarkMode, setIsDarkMode] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
         const storedTheme = localStorage.getItem("portfolio-theme");
@@ -38,12 +39,25 @@ export const HeroSection = () => {
             {/* NAVIGATION BAR */}
             <div className="flex justify-between items-center w-full">
 
-
                 {/* CONTACT ICONS */}
                 <div className="flex space-x-2 items-center">
                     {/* MENU FOR SMALL SCREENS */}
                     <span className="md:hidden mr-3 cursor-pointer">
-                        <Menu />
+                        {isMenuOpen ?
+                            (
+                                <X
+                                    className="text-foreground z-10"
+                                    onClick={() => setIsMenuOpen(prev => !prev)}
+                                />
+                            )
+                            :
+                            (
+                                <Menu
+                                    className="text-foreground z-10"
+                                    onClick={() => setIsMenuOpen(prev => !prev)}
+                                />
+                            )
+                        }
                     </span>
                     <SiLinkedin className="text-foreground" />
                     <SiGmail className="text-foreground" />
@@ -55,7 +69,8 @@ export const HeroSection = () => {
                     {links.map(link => (
                         <a
                             key={link.name}
-                            href={link.href}>
+                            href={link.href}
+                        >
                             {link.name}
                         </a>
                     ))}
@@ -82,6 +97,19 @@ export const HeroSection = () => {
             {/* SCROLL DOWN ARROW */}
             <div className="flex w-full justify-center items-center">
                 <ArrowDownToLine size={20} className="text-foreground" />
+            </div>
+
+            {/* MOBILE MENU */}
+            <div className={`${isMenuOpen ? "flex" : "hidden"} flex-col items-center justify-center space-y-5 fixed top-0 left-0 min-h-screen min-w-screen bg-background/50 backdrop-blur-xs `} >
+                <X
+                    className="text-foreground absolute top-10 left-4 "
+                    onClick={() => setIsMenuOpen(prev => !prev)}
+                />
+                {links.map((link, idx) => (
+                    <p key={idx} className="text-foreground text-shadow">
+                        {link.name}
+                    </p>
+                ))}
             </div>
         </section>
     )

@@ -2,7 +2,7 @@ import { projectsData } from "@/dataset/projects"
 
 export const ProjectSection = () => {
     return (
-        <section className="sec">
+        <section className="sec" id="projects">
             {/* Title */}
             <h2>Projects</h2>
             {/* Subtitle */}

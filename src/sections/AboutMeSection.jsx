@@ -1,6 +1,6 @@
 export const AboutMeSection = () => {
     return (
-        <section className="sec text-center">
+        <section className="sec text-center" id="about">
             <h1>About Me</h1>
             <p className="max-w-3xl mx-auto">
             I am Rae Allen Retuta from Pilar, Bataan. I study Information Technology Specializing 
