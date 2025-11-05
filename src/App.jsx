@@ -9,11 +9,10 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/portfolio-website">
       <Routes>
-        <Route index element={ <MainPage /> } />
-        <Route path='portfolio-website' element={ <MainPage /> } />
-        <Route path='*' element={ <NotFound /> } />
+        <Route index element={<MainPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   )
