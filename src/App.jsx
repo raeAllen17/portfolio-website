@@ -12,6 +12,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route index element={ <MainPage /> } />
+        <Route path='portfolio-website' element={ <MainPage /> } />
         <Route path='*' element={ <NotFound /> } />
       </Routes>
     </BrowserRouter>
